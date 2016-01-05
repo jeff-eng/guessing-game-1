@@ -12,7 +12,7 @@
       if (ans1.toLowerCase() === "frazier"){
         alert("Good job " + userName + "!");
       } else {
-        alert("Wrong! My name is Frazier. Remember that "+userName);
+        alert("Wrong! My name is Frazier, not " + ans1 +". Remember that "+userName);
       }
 
       var ans2 = prompt("What is my favorite color?");
@@ -20,7 +20,7 @@
       if (ans2.toLowerCase() === "green"){
         alert("Good job " + userName + "!");
       } else {
-        alert("Wrong! My favorite color is green. Remember that "+userName);
+        alert("Wrong! My favorite color is green, not " + ans2 +". Remember that "+userName);
       }
 
       var ans3 = prompt("What state was I born in?");
@@ -28,7 +28,7 @@
       if (ans3.toLowerCase() === "new york"){
         alert("Good job " + userName + "!");
       } else {
-        alert("Wrong! I was born in New York. Remember that "+userName);
+        alert("Wrong! I was born in New York, not " + ans3 +". Remember that "+userName);
       }
 
       var ans4 = Number(prompt("What number am I thinking of?"));
@@ -37,9 +37,9 @@
       if (ans4 === numToGuess){
         alert("Good job " + userName + "!");
       } else if(ans4 >= numToGuess) {
-        alert("Too high "+userName + "!");
+        alert("Too high "+userName + "! I was thinking of "+ numToGuess + ".");
       } else if (ans4 <= numToGuess) {
-        alert("Too low "+userName + "!");
+        alert("Too low "+userName + "! I was thinking of "+ numToGuess + ".");
       } else {
         alert("Critical error!! " + userName + " evacuate immediately!");
       }
