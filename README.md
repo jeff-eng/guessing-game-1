@@ -11,4 +11,5 @@ Current problems include, but are likely not limited to:
 It would be more elegant if the verbal portion of the game were contained within a function as well.
 There is no current counter for the number of correct vs. incorrect answers.
 In the while loop, it calls checkAnswer twice to get the two elements of the array it returns, which isn't necessary.
-The question list for the verbal portion seems pretty clunky. 
+The question list for the verbal portion seems pretty clunky.
+When you answer a verbal question, if the input isn't of the required form, it doesn't give you a second chance to answer. 

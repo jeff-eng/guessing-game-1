@@ -23,10 +23,11 @@ var guessingGame = function(){
 
     if (userAnswer === 'y' || userAnswer === 'n') {
       if (userAnswer === thisQuestion[1]){
-        console.log(thisQuestion[2]);
+        //console.log(thisQuestion[2]);
         alert(thisQuestion[2]);
+        correctAnsCount++;
       } else {
-        console.log(thisQuestion[3]);
+        //console.log(thisQuestion[3]);
         alert(thisQuestion[3]);
       }
     } else {
@@ -34,8 +35,9 @@ var guessingGame = function(){
     }
   }
 
+  alert('You guessed ' + correctAnsCount + ' questions correctly! Great job ' + userName + '!');
 }
-guessingGame();
+
 
 
 //This will check whether the guessed number is right or not
@@ -76,4 +78,8 @@ var numberGuess = function (){
   }
   alert('You guessed it ' + userName + '!!!!');
 }
+
+
+//actually call the functions
+guessingGame();
 numberGuess();
