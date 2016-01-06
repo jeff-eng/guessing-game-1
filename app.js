@@ -1,6 +1,6 @@
-/*var userName = prompt("What is your name?");
+var userName = prompt("What is your name?");
 
-var ans1 = prompt("What is my first name?");
+/* var ans1 = prompt("What is my first name?");
 console.log("User answer to Q1: " + ans1);
 if (ans1.toLowerCase() === "frazier"){
   alert("Good job " + userName + "!");
@@ -30,17 +30,17 @@ var checkAnswer = function(myGuess, numberToGuess){
   //console.log('The checkAnswer function was called');
   //console.log('The number to guess is ' + numberToGuess);
   if (myGuess === numberToGuess){
-    console.log('The user guessed correctly');
-    return false;
+    //console.log('The user guessed correctly');
+    return [false, 'The user guessed correctly'] ;
   } else if (myGuess >= numberToGuess) {
-    console.log('The user guessed too high');
-    return true;
+    //console.log('The user guessed too high');
+    return [true, 'You guessed too high ' + userName] ;
   } else if (myGuess <= numberToGuess) {
-    console.log('The user guessed too low');
-    return true;
+    //console.log('The user guessed too low');
+    return [true, 'You guessed too low ' + userName];
   } else if (isNaN(myGuess)){
-    console.log('Please enter a number');
-    return true;
+    //console.log('Please enter a number');
+    return [true, 'Please enter a number next time ' + userName];
   } else {
     alert('Critical error!');
   }
@@ -51,14 +51,16 @@ var numberGuess = function (){
   var userGuess;
   var numToGuess = Math.floor(Math.random()*2 + 1);
   var whetherIncorrect = true;
+  var promptString = 'Guess a number between 1 and 2';
   console.log('The number to guess is ' + numToGuess);
 
   while (whetherIncorrect){
-    userGuess = Number(prompt('Guess a number between 1 and 2'));
+    userGuess = Number(prompt(promptString));
     console.log('They user guessed ' + userGuess);
-    whetherIncorrect = checkAnswer(userGuess, numToGuess);
+    whetherIncorrect = checkAnswer(userGuess, numToGuess)[0];
+    promptString = checkAnswer(userGuess, numToGuess)[1];
   }
-  alert('You guessed it!!');
+  alert('You guessed it ' + userName + '!!!!');
 }
 numberGuess();
 
