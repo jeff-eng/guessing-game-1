@@ -1,46 +1,37 @@
 var userName = prompt("What is your name?");
-
-var questionList = [['Is my first name Frazier?', 'y',"That's right! My name is Frazier!", "Nope! My name actually is Frazier"]];
+var question1 = ['Is my first name Frazier?', 'y',"That's right! My name is Frazier! Good job " + userName +'!', "Nope! My name actually is Frazier. Better luck next time " + userName +'.'];
+var question2 = ['Was I born in Washington?', 'n', "That's right! I was actually born in New York. Good job " + userName +'!', "Nope! I was actually born in New York. Better luck next time " + userName +'.'];
+var question3 =['Is my favorite color green?', 'y', "That's right! My favorite color is green. Good job " + userName +'!', "Nope! My favorite color actually is green. Better luck next time " + userName +'.'];
+var questionList = [question1, question2, question3];
 var correctAnsCount = 0;
 var thisQuestion;
 var userAnswer;
 
+
+//Iterates through the questions, determining whether the user answered the question correctly or not
 for (i=0; i<questionList.length; i++){
   thisQuestion = questionList[i];
   console.log(thisQuestion);
   userAnswer = prompt(thisQuestion[0]).toLowerCase();
+  if (userAnswer === 'yes') {
+    userAnswer = 'y';
+  } else if (userAnswer === 'no') {
+    userAnswer = 'n';
+  }
+
   if (userAnswer === 'y' || userAnswer === 'n') {
-    console.log('test statement');
+    if (userAnswer === thisQuestion[1]){
+      console.log(thisQuestion[2]);
+      alert(thisQuestion[2]);
+    } else {
+      console.log(thisQuestion[3]);
+      alert(thisQuestion[3]);
+    }
   } else {
-    alert('Critical error!');
+    alert('Critical error! Enter yes or no next time!');
   }
 }
 
-
-/* var ans1 = prompt("What is my first name?");
-console.log("User answer to Q1: " + ans1);
-if (ans1.toLowerCase() === "frazier"){
-  alert("Good job " + userName + "!");
-} else {
-  alert("Wrong! My name is Frazier, not " + ans1 + ". Remember that " + userName);
-}
-
-var ans2 = prompt("Is my favorite color green?");
-console.log("User answer to Q2: "+ ans2);
-if (ans2.toLowerCase() === 'y' || ans2.toLowerCase() == 'yes'){
-  alert("Good job " + userName + "!");
-} else {
-  alert("Wrong! My favorite color is green, not " + ans2 + ". Remember that " + userName);
-}
-
-var ans3 = prompt("What state was I born in?");
-console.log("User answer to Q3: "+ ans3);
-if (ans3.toLowerCase() === "new york"){
-  alert("Good job " + userName + "!");
-} else {
-  alert("Wrong! I was born in New York, not " + ans3 + ". Remember that " + userName);
-}
-*/
 
 //This will check whether the answer is right or not
 var checkAnswer = function(myGuess, numberToGuess){
@@ -80,17 +71,3 @@ var numberGuess = function (){
   alert('You guessed it ' + userName + '!!!!');
 }
 numberGuess();
-
-
-/*var ans4 = Number(prompt("What number between 1 and 5 am I thinking of?"));
-
-console.log("User answer to Q4: "+ ans4);
-if (ans4 === numToGuess){
-  alert("Good job " + userName + "!");
-} else if(ans4 >= numToGuess) {
-  alert("Too high " + userName + "! I was thinking of " + numToGuess + ".");
-} else if (ans4 <= numToGuess) {
-  alert("Too low " + userName + "! I was thinking of " + numToGuess + ".");
-} else {
-  alert("Critical error!! " + userName + " evacuate immediately!");
-}*/
