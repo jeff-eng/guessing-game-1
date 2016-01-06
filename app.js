@@ -32,9 +32,17 @@ var checkAnswer = function(myGuess, numberToGuess){
   if (myGuess === numberToGuess){
     console.log('The user guessed correctly');
     return false;
-  } else {
-    console.log('The user guessed incorrectly');
+  } else if (myGuess >= numberToGuess) {
+    console.log('The user guessed too high');
     return true;
+  } else if (myGuess <= numberToGuess) {
+    console.log('The user guessed too low');
+    return true;
+  } else if (isNaN(myGuess)){
+    console.log('Please enter a number');
+    return true;
+  } else {
+    alert('Critical error!');
   }
 }
 
@@ -45,13 +53,12 @@ var numberGuess = function (){
   var whetherIncorrect = true;
   console.log('The number to guess is ' + numToGuess);
 
-
   while (whetherIncorrect){
     userGuess = Number(prompt('Guess a number between 1 and 2'));
     console.log('They user guessed ' + userGuess);
     whetherIncorrect = checkAnswer(userGuess, numToGuess);
   }
-
+  alert('You guessed it!!');
 }
 numberGuess();
 
