@@ -25,13 +25,20 @@ if (ans3.toLowerCase() === "new york"){
 }
 */
 
-
-var checkAnswer = function(myGuess){
-  console.log('The checkAnswer function was called');
-  return false;
+//This will check whether the answer is right or not
+var checkAnswer = function(myGuess, numberToGuess){
+  //console.log('The checkAnswer function was called');
+  //console.log('The number to guess is ' + numberToGuess);
+  if (myGuess === numberToGuess){
+    console.log('The user guessed correctly');
+    return false;
+  } else {
+    console.log('The user guessed incorrectly');
+    return true;
+  }
 }
 
-
+//This will run the guess a number game
 var numberGuess = function (){
   var userGuess;
   var numToGuess = Math.floor(Math.random()*2 + 1);
@@ -42,7 +49,7 @@ var numberGuess = function (){
   while (whetherIncorrect){
     userGuess = Number(prompt('Guess a number between 1 and 2'));
     console.log('They user guessed ' + userGuess);
-    whetherIncorrect = checkAnswer();
+    whetherIncorrect = checkAnswer(userGuess, numToGuess);
   }
 
 }
