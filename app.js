@@ -25,27 +25,24 @@ if (ans3.toLowerCase() === "new york"){
 }
 */
 
-/*var numToGuess = Math.floor(Math.random()*5 + 1);
+
 var checkAnswer = function(myGuess){
-
-  if(){
-
-  } else if (){
-
-  } else {
-    alert("critical error!")
-  }
+  console.log('The checkAnswer function was called');
+  return false;
 }
-*/
+
 
 var numberGuess = function (){
   var userGuess;
+  var numToGuess = Math.floor(Math.random()*2 + 1);
   var whetherIncorrect = true;
+  console.log('The number to guess is ' + numToGuess);
+
 
   while (whetherIncorrect){
     userGuess = Number(prompt('Guess a number between 1 and 2'));
-    console.log(userGuess);
-    whetherIncorrect = false;
+    console.log('They user guessed ' + userGuess);
+    whetherIncorrect = checkAnswer();
   }
 
 }
