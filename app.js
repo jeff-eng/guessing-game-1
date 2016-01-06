@@ -1,5 +1,7 @@
 var userName = prompt("What is your name?");
 
+
+//checks to see whether the user's answer to a verbal question is correct
 var checkAnswer = function (theirAnswer, rightAnswer){
   console.log("checkAnswer was called");
 
@@ -17,7 +19,7 @@ var checkAnswer = function (theirAnswer, rightAnswer){
 
 }
 
-//Iterates through the questions, determining whether the user answered the question correctly or not
+//iterates through a list of questions and asks each one
 var guessingGame = function(){
   var question1 = ['Is my first name Frazier?', 'y',"That's right! My name is Frazier! Good job " + userName +'!', "Nope! My name actually is Frazier. Better luck next time " + userName +'.', 'Please answer either yes or no next time.'];
   var question2 = ['Was I born in Washington?', 'n', "That's right! I was actually born in New York. Good job " + userName +'!', "Nope! I was actually born in New York. Better luck next time " + userName +'.', 'Please answer either yes or no next time.'];
@@ -27,8 +29,6 @@ var guessingGame = function(){
   var thisQuestion;
   var userAnswer;
   var checkAnswerResult;
-
-
 
   for (i=0; i<questionList.length; i++){
     var answeredFlag = false;
@@ -45,19 +45,22 @@ var guessingGame = function(){
       }
 
       checkAnswerResult = checkAnswer(userAnswer, thisQuestion[1]);
+      if (checkAnswerResult[1] === 2){
+        correctAnsCount++;
+      }
       console.log(checkAnswerResult);
       alert(thisQuestion[checkAnswerResult[1]]);
       answeredFlag = checkAnswerResult[0];
 
     }
   }
-  //alert('You guessed ' + correctAnsCount + ' questions correctly! Great job ' + userName + '!');
+  alert('You guessed ' + correctAnsCount + ' questions correctly! Great job ' + userName + '!');
 }
 
 
 
 
-//This will check whether the guessed number is right or not
+//this will check whether the guessed number is right or not
 var checkGuess = function(myGuess, numberToGuess){
   //console.log('The checkAnswer function was called');
   //console.log('The number to guess is ' + numberToGuess);
