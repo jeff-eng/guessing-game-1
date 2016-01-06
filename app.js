@@ -39,11 +39,15 @@ var checkAnswer = function(myGuess){
 */
 
 var numberGuess = function (){
+  var userGuess;
   var whetherIncorrect = true;
+
   while (whetherIncorrect){
-    console.log("hello dave");
+    userGuess = Number(prompt('Guess a number between 1 and 2'));
+    console.log(userGuess);
     whetherIncorrect = false;
   }
+
 }
 numberGuess();
 
