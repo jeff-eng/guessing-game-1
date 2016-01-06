@@ -1,4 +1,4 @@
-var userName = prompt("What is your name?");
+/*var userName = prompt("What is your name?");
 
 var ans1 = prompt("What is my first name?");
 console.log("User answer to Q1: " + ans1);
@@ -8,9 +8,9 @@ if (ans1.toLowerCase() === "frazier"){
   alert("Wrong! My name is Frazier, not " + ans1 + ". Remember that " + userName);
 }
 
-var ans2 = prompt("What is my favorite color?");
+var ans2 = prompt("Is my favorite color green?");
 console.log("User answer to Q2: "+ ans2);
-if (ans2.toLowerCase() === "green"){
+if (ans2.toLowerCase() === 'y' || ans2.toLowerCase() == 'yes'){
   alert("Good job " + userName + "!");
 } else {
   alert("Wrong! My favorite color is green, not " + ans2 + ". Remember that " + userName);
@@ -23,9 +23,33 @@ if (ans3.toLowerCase() === "new york"){
 } else {
   alert("Wrong! I was born in New York, not " + ans3 + ". Remember that " + userName);
 }
+*/
 
-var ans4 = Number(prompt("What number between 1 and 5 am I thinking of?"));
-var numToGuess = Math.floor(Math.random()*5 + 1);
+/*var numToGuess = Math.floor(Math.random()*5 + 1);
+var checkAnswer = function(myGuess){
+
+  if(){
+
+  } else if (){
+
+  } else {
+    alert("critical error!")
+  }
+}
+*/
+
+var numberGuess = function (){
+  var whetherIncorrect = true;
+  while (whetherIncorrect){
+    console.log("hello dave");
+    whetherIncorrect = false;
+  }
+}
+numberGuess();
+
+
+/*var ans4 = Number(prompt("What number between 1 and 5 am I thinking of?"));
+
 console.log("User answer to Q4: "+ ans4);
 if (ans4 === numToGuess){
   alert("Good job " + userName + "!");
@@ -35,4 +59,4 @@ if (ans4 === numToGuess){
   alert("Too low " + userName + "! I was thinking of " + numToGuess + ".");
 } else {
   alert("Critical error!! " + userName + " evacuate immediately!");
-} 
+}*/
