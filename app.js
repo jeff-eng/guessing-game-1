@@ -1,5 +1,21 @@
 var userName = prompt("What is your name?");
 
+var checkAnswer = function (theirAnswer, rightAnswer){
+  console.log("checkAnswer was called");
+
+  if (theirAnswer === 'y' || theirAnswer === 'n') {
+    if (theirAnswer === rightAnswer){
+      return [true , 2];
+    } else {
+      return [true , 3];
+    }
+  } else {
+    console.log('Critical error! Enter yes or no next time!');
+    return [false , 3];
+
+  }
+
+}
 
 //Iterates through the questions, determining whether the user answered the question correctly or not
 var guessingGame = function(){
@@ -10,38 +26,43 @@ var guessingGame = function(){
   var correctAnsCount = 0;
   var thisQuestion;
   var userAnswer;
+  var checkAnswerResult;
+
+
 
   for (i=0; i<questionList.length; i++){
+    var answeredFlag = false;
     thisQuestion = questionList[i];
     console.log(thisQuestion);
-    userAnswer = prompt(thisQuestion[0]).toLowerCase();
-    if (userAnswer === 'yes') {
-      userAnswer = 'y';
-    } else if (userAnswer === 'no') {
-      userAnswer = 'n';
-    }
 
-    if (userAnswer === 'y' || userAnswer === 'n') {
-      if (userAnswer === thisQuestion[1]){
-        //console.log(thisQuestion[2]);
-        alert(thisQuestion[2]);
-        correctAnsCount++;
-      } else {
-        //console.log(thisQuestion[3]);
-        alert(thisQuestion[3]);
+
+    while (answeredFlag === false){
+      userAnswer = prompt(thisQuestion[0]).toLowerCase();
+      if (userAnswer === 'yes') {
+        userAnswer = 'y';
+      } else if (userAnswer === 'no') {
+        userAnswer = 'n';
       }
-    } else {
-      alert('Critical error! Enter yes or no next time!');
-    }
-  }
 
-  alert('You guessed ' + correctAnsCount + ' questions correctly! Great job ' + userName + '!');
+      checkAnswerResult = checkAnswer(userAnswer, thisQuestion[1]);
+      console.log(checkAnswerResult);
+      alert(thisQuestion[checkAnswerResult[1]]);
+      answeredFlag = checkAnswerResult[0];
+
+
+
+    }
+
+
+  }
+  //alert('You guessed ' + correctAnsCount + ' questions correctly! Great job ' + userName + '!');
 }
 
 
 
+
 //This will check whether the guessed number is right or not
-var checkAnswer = function(myGuess, numberToGuess){
+var checkGuess = function(myGuess, numberToGuess){
   //console.log('The checkAnswer function was called');
   //console.log('The number to guess is ' + numberToGuess);
   if (myGuess === numberToGuess){
@@ -65,16 +86,16 @@ var checkAnswer = function(myGuess, numberToGuess){
 var numberGuess = function (){
   var userGuess;
   var checkAnswerResult;
-  var numToGuess = Math.floor(Math.random()*100 + 1);
+  var numToGuess = Math.floor(Math.random()*2 + 1);
   var whetherIncorrect = true;
-  var promptString = 'Guess a number between 1 and 100';
+  var promptString = 'Guess a number between 1 and 2';
   console.log('The number to guess is ' + numToGuess);
 
   while (whetherIncorrect){
     userGuess = Number(prompt(promptString));
     console.log('They user guessed ' + userGuess);
-    whetherIncorrect = checkAnswer(userGuess, numToGuess)[0];
-    promptString = checkAnswer(userGuess, numToGuess)[1];
+    whetherIncorrect = checkGuess(userGuess, numToGuess)[0];
+    promptString = checkGuess(userGuess, numToGuess)[1];
   }
   alert('You guessed it ' + userName + '!!!!');
 }
