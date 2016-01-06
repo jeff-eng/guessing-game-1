@@ -1,5 +1,22 @@
 var userName = prompt("What is your name?");
 
+var questionList = [['Is my first name Frazier?', 'y',"That's right! My name is Frazier!", "Nope! My name actually is Frazier"]];
+var correctAnsCount = 0;
+var thisQuestion;
+var userAnswer;
+
+for (i=0; i<questionList.length; i++){
+  thisQuestion = questionList[i];
+  console.log(thisQuestion);
+  userAnswer = prompt(thisQuestion[0]).toLowerCase();
+  if (userAnswer === 'y' || userAnswer === 'n') {
+    console.log('test statement');
+  } else {
+    alert('Critical error!');
+  }
+}
+
+
 /* var ans1 = prompt("What is my first name?");
 console.log("User answer to Q1: " + ans1);
 if (ans1.toLowerCase() === "frazier"){
@@ -34,13 +51,13 @@ var checkAnswer = function(myGuess, numberToGuess){
     return [false, 'The user guessed correctly'] ;
   } else if (myGuess >= numberToGuess) {
     //console.log('The user guessed too high');
-    return [true, 'You guessed too high ' + userName] ;
+    return [true, 'You guessed too high ' + userName + '. Please guess again.'] ;
   } else if (myGuess <= numberToGuess) {
     //console.log('The user guessed too low');
-    return [true, 'You guessed too low ' + userName];
+    return [true, 'You guessed too low ' + userName + '. Please guess again.'];
   } else if (isNaN(myGuess)){
     //console.log('Please enter a number');
-    return [true, 'Please enter a number next time ' + userName];
+    return [true, 'Please enter a number next time ' + userName + '.'];
   } else {
     alert('Critical error!');
   }
