@@ -11,7 +11,7 @@ var checkAnswer = function (theirAnswer, rightAnswer){
     }
   } else {
     console.log('Critical error! Enter yes or no next time!');
-    return [false , 3];
+    return [false , 4];
 
   }
 
@@ -19,9 +19,9 @@ var checkAnswer = function (theirAnswer, rightAnswer){
 
 //Iterates through the questions, determining whether the user answered the question correctly or not
 var guessingGame = function(){
-  var question1 = ['Is my first name Frazier?', 'y',"That's right! My name is Frazier! Good job " + userName +'!', "Nope! My name actually is Frazier. Better luck next time " + userName +'.'];
-  var question2 = ['Was I born in Washington?', 'n', "That's right! I was actually born in New York. Good job " + userName +'!', "Nope! I was actually born in New York. Better luck next time " + userName +'.'];
-  var question3 =['Is my favorite color green?', 'y', "That's right! My favorite color is green. Good job " + userName +'!', "Nope! My favorite color actually is green. Better luck next time " + userName +'.'];
+  var question1 = ['Is my first name Frazier?', 'y',"That's right! My name is Frazier! Good job " + userName +'!', "Nope! My name actually is Frazier. Better luck next time " + userName +'.', 'Please answer either yes or no next time.'];
+  var question2 = ['Was I born in Washington?', 'n', "That's right! I was actually born in New York. Good job " + userName +'!', "Nope! I was actually born in New York. Better luck next time " + userName +'.', 'Please answer either yes or no next time.'];
+  var question3 =['Is my favorite color green?', 'y', "That's right! My favorite color is green. Good job " + userName +'!', "Nope! My favorite color actually is green. Better luck next time " + userName +'.', 'Please answer either yes or no next time.'];
   var questionList = [question1, question2, question3];
   var correctAnsCount = 0;
   var thisQuestion;
@@ -49,11 +49,7 @@ var guessingGame = function(){
       alert(thisQuestion[checkAnswerResult[1]]);
       answeredFlag = checkAnswerResult[0];
 
-
-
     }
-
-
   }
   //alert('You guessed ' + correctAnsCount + ' questions correctly! Great job ' + userName + '!');
 }
@@ -94,8 +90,9 @@ var numberGuess = function (){
   while (whetherIncorrect){
     userGuess = Number(prompt(promptString));
     console.log('They user guessed ' + userGuess);
-    whetherIncorrect = checkGuess(userGuess, numToGuess)[0];
-    promptString = checkGuess(userGuess, numToGuess)[1];
+    checkAnswerResult=checkGuess(userGuess, numToGuess);
+    whetherIncorrect = checkAnswerResult[0];
+    promptString = checkAnswerResult[1];
   }
   alert('You guessed it ' + userName + '!!!!');
 }
