@@ -76,9 +76,9 @@ var checkGuess = function(myGuess, numberToGuess){
 var numberGuess = function (){
   var userGuess;
   var checkAnswerResult;
-  var numToGuess = Math.floor(Math.random()*2 + 1);
+  var numToGuess = Math.floor(Math.random()*100 + 1);
   var whetherIncorrect = true;
-  var promptString = 'Guess a number between 1 and 2';
+  var promptString = 'Guess a number between 1 and 100';
   console.log('The number to guess is ' + numToGuess);
 
   while (whetherIncorrect){
