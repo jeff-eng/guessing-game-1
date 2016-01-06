@@ -12,11 +12,9 @@ var checkAnswer = function (theirAnswer, rightAnswer){
       return [true , 3];
     }
   } else {
-    console.log('Critical error! Enter yes or no next time!');
+    console.log('Critical error! Enter yes, y, no, or n next time! Capitalization does\'t matter.');
     return [false , 4];
-
   }
-
 }
 
 //iterates through a list of questions and asks each one
@@ -43,7 +41,6 @@ var guessingGame = function(){
       } else if (userAnswer === 'no') {
         userAnswer = 'n';
       }
-
       checkAnswerResult = checkAnswer(userAnswer, thisQuestion[1]);
       if (checkAnswerResult[1] === 2){
         correctAnsCount++;
@@ -51,7 +48,6 @@ var guessingGame = function(){
       console.log(checkAnswerResult);
       alert(thisQuestion[checkAnswerResult[1]]);
       answeredFlag = checkAnswerResult[0];
-
     }
   }
   alert('You guessed ' + correctAnsCount + ' questions correctly! Great job ' + userName + '!');
@@ -62,19 +58,14 @@ var guessingGame = function(){
 
 //this will check whether the guessed number is right or not
 var checkGuess = function(myGuess, numberToGuess){
-  //console.log('The checkAnswer function was called');
-  //console.log('The number to guess is ' + numberToGuess);
+
   if (myGuess === numberToGuess){
-    //console.log('The user guessed correctly');
     return [false, 'The user guessed correctly'] ;
   } else if (myGuess >= numberToGuess) {
-    //console.log('The user guessed too high');
     return [true, 'You guessed too high ' + userName + '. Please guess again.'] ;
   } else if (myGuess <= numberToGuess) {
-    //console.log('The user guessed too low');
     return [true, 'You guessed too low ' + userName + '. Please guess again.'];
   } else if (isNaN(myGuess)){
-    //console.log('Please enter a number');
     return [true, 'Please enter a number next time ' + userName + '.'];
   } else {
     alert('Critical error!');
