@@ -17,45 +17,46 @@ if (ans1 === "y"){
   res1.textContent = ("Good job " + userName + "! The answer is indeed " + ans1);
   counter++;
 } else {
-  alert("Wrong! My name actually is Frazier. Remember that " + userName);
+  res1.textContent = ("Wrong! My name actually is Frazier. Remember that " + userName);
+}
+}
+
+var ans2Function = function() {
+var ans2 = prompt("Is my favorite color blue?").toLowerCase();
+if (ans2 === 'yes'){
+  ans2 = 'y';
+} else if (ans2 === 'no'){
+  ans2 = 'n';
+}
+console.log("User answer to Q2: "+ ans2);
+if (ans2 === 'n'){
+  res2.textContent = ("Good job " + userName + "! My favorite color is green.");
+  counter++;
+} else {
+  res2.textContent = ("Wrong! My favorite color is green. Remember that " + userName);
+}
+}
+
+var ans3Function = function() {
+var ans3 = prompt("Was I born in Washington?").toLowerCase();
+if (ans3 === 'yes'){
+  ans3 = 'y';
+} else if (ans3 === 'no'){
+  ans3 = 'n';
+}
+console.log("User answer to Q3: "+ ans3);
+if (ans3 === "n"){
+  res3.textContent = ("Good job " + userName + "! I was born in New York.");
+  counter++;
+} else {
+  res3.textContent = ("Wrong! I was born in New York. Remember that " + userName);
 }
 }
 
 ans1Function();
+ans2Function();
+ans3Function();
 
-// var ans2 = prompt("Is my favorite color blue?").toLowerCase();
-// if (ans2 === 'yes'){
-//   ans2 = 'y';
-// } else if (ans1 === 'no'){
-//   ans2 = 'n';
-// }
-// console.log("User answer to Q2: "+ ans2);
-// if (ans2 === 'n'){
-//   alert("Good job " + userName + "! My favorite color is green.");
-//   counter++;
-// } else {
-//   alert("Wrong! My favorite color is green. Remember that " + userName);
-// }
-//
-//
-//
-// var ans3 = prompt("Was I born in Washington?").toLowerCase();
-// if (ans3 === 'yes'){
-//   ans3 = 'y';
-// } else if (ans1 === 'no'){
-//   ans3 = 'n';
-// }
-// console.log("User answer to Q3: "+ ans3);
-// if (ans3 === "n"){
-//   alert("Good job " + userName + "! I was born in New York.");
-//   counter++;
-// } else {
-//   alert("Wrong! I was born in New York. Remember that " + userName);
-// }
-//
-//
-//
-//
 // var guessed = false;
 // var ans4;
 // var numToGuess = Math.floor(Math.random()*5 + 1);
