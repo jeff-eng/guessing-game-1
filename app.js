@@ -6,8 +6,8 @@ var res3 = document.getElementById('thirdAnswer');
 var res4 = document.getElementById('fourthAnswer');
 var res5 = document.getElementById('fifthAnswer');
 
+//First Question Function
 var ans1Function = function () {
-
 var ans1 = prompt("Is my first name Frazier?").toLowerCase();
 if (ans1 === 'yes'){
   ans1 = 'y';
@@ -23,6 +23,7 @@ if (ans1 === "y"){
 }
 }
 
+//second question function
 var ans2Function = function() {
 var ans2 = prompt("Is my favorite color blue?").toLowerCase();
 if (ans2 === 'yes'){
@@ -39,6 +40,7 @@ if (ans2 === 'n'){
 }
 }
 
+//third question function
 var ans3Function = function() {
 var ans3 = prompt("Was I born in Washington?").toLowerCase();
 if (ans3 === 'yes'){
@@ -55,10 +57,7 @@ if (ans3 === "n"){
 }
 }
 
-ans1Function();
-ans2Function();
-ans3Function();
-
+//fourth question function
 var ans4Function = function () {
 var guessed = false;
 var ans4;
@@ -78,9 +77,30 @@ while (guessed === false) {
   } else {
     res4.textContent = ("Critical error!! " + userName + " evacuate immediately!");
   }
-};
-
-alert('Congratulations ' + userName + ' you got ' + counter + ' questions correct!');
+}
 }
 
+//fifth question function
+var ans5Function = function () {
+var cities = ["seattle", "missoula", "phoenix", "krakow"];
+var question5 = prompt("what cities have I been to in the past year? Guess one").toLowerCase();
+for (i = 0; i < cities.length; i++) {
+  if (question5 === cities[i]) {
+    res5.textContent = ("That is great! I have indeed been to " + cities[i] + " in the past year");
+    counter++;
+  } else {
+    res5.textContent = ("Sorry, you're wrong. But it's ok, you are likely used to that.");
+  };
+  }
+
+}
+
+//function calls found in lines below
+ans1Function();
+ans2Function();
+ans3Function();
 ans4Function();
+ans5Function();
+
+//final congratulatory alert
+alert('Congratulations ' + userName + ' you got ' + counter + ' questions correct!');
