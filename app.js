@@ -88,6 +88,7 @@ for (i = 0; i < cities.length; i++) {
   if (question5 === cities[i]) {
     res5.textContent = ("That is great! I have indeed been to " + cities[i] + " in the past year");
     counter++;
+    break;
   } else {
     res5.textContent = ("Sorry, you're wrong. But it's ok, you are likely used to that.");
   };
