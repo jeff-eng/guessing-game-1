@@ -3,6 +3,8 @@ var counter = 0;
 var res1 = document.getElementById('firstAnswer');
 var res2 = document.getElementById('secondAnswer');
 var res3 = document.getElementById('thirdAnswer');
+var res4 = document.getElementById('fourthAnswer');
+var res5 = document.getElementById('fifthAnswer');
 
 var ans1Function = function () {
 
@@ -57,24 +59,28 @@ ans1Function();
 ans2Function();
 ans3Function();
 
-// var guessed = false;
-// var ans4;
-// var numToGuess = Math.floor(Math.random()*5 + 1);
-// console.log("User answer to Q4: "+ ans4);
-// while (guessed === false) {
-//   ans4 = Number(prompt("What number between 1 and 5 am I thinking of?"));
-//
-//   if (ans4 === numToGuess){
-//     alert("Good job " + userName + "!");
-//     counter++;
-//     guessed = true;
-//   } else if(ans4 >= numToGuess) {
-//     alert("Too high " + userName + "! Guess again.");
-//   } else if (ans4 <= numToGuess) {
-//     alert("Too low " + userName + "! Guess again.");
-//   } else {
-//     alert("Critical error!! " + userName + " evacuate immediately!");
-//   }
-// };
-//
-// alert('Congratulations ' + userName + ' you got ' + counter + ' questions correct!');
+var ans4Function = function () {
+var guessed = false;
+var ans4;
+var numToGuess = Math.floor(Math.random()*5 + 1);
+console.log("User answer to Q4: "+ ans4);
+while (guessed === false) {
+  ans4 = Number(prompt("What number between 1 and 5 am I thinking of?"));
+
+  if (ans4 === numToGuess){
+    res4.textContent = ("Good job " + userName + "!");
+    counter++;
+    guessed = true;
+  } else if(ans4 >= numToGuess) {
+    res4.textContent = ("Too high " + userName + "! Guess again.");
+  } else if (ans4 <= numToGuess) {
+    res4.textContent = ("Too low " + userName + "! Guess again.");
+  } else {
+    res4.textContent = ("Critical error!! " + userName + " evacuate immediately!");
+  }
+};
+
+alert('Congratulations ' + userName + ' you got ' + counter + ' questions correct!');
+}
+
+ans4Function();
